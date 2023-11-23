@@ -17,6 +17,12 @@ class EdgeTallyOperator(bpy.types.Operator):
         return context.active_object is not None and context.active_object.type == 'MESH' and context.active_object.mode == 'EDIT'
 
     def execute(self, context):
+        """
+        Execute the operator to count the selected mesh elements.
+
+        Returns:
+            dict: The result of the operator execution.
+        """
         obj = context.edit_object
         me = obj.data
         bm = bmesh.from_edit_mesh(me)
